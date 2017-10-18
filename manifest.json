@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Trawler",
+  "version": "0.1",
+  "description": "To trawl web",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["<all_urls>",  "background", "storage",  "webRequest","webRequestBlocking"],
+  "content_scripts": [
+    {
+      "js": [ "dist/inject.js" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ],
+
+  "background": {
+    "scripts": ["dist/background.js"],
+    "persistent": true
+  }
+}
