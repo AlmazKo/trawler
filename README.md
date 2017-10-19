@@ -4,13 +4,10 @@ This extension disables ad blocks and analytics scripts, block unnecessary ifram
 
 ### Installation
 
-```bash
-npm install
-```
-
-1. Open [chrome://extensions/](chrome://extensions/)
-2. Enable "Developer mode"
-3. Load unpacked extension from `dist` directory
+1. Execute ``npm install ``
+2. Open [chrome://extensions/](chrome://extensions/)
+3. Enable "Developer mode"
+4. Load unpacked extension from `dist` directory
 
 
 ### Bugs and Feedback
