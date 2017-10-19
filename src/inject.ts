@@ -1,19 +1,19 @@
 const log = (...args: any[]) => console.log("%cTrawler", "color: blue", ...args);
 
 const iframes = document.getElementsByTagName('iframe');
-const anchors = document.querySelectorAll('img[src*=banners]');
+
+const foundIframes = new Set<HTMLElement>();
 
 function detect(elements: NodeListOf<HTMLElement>) {
-    for (let i = 0, block: HTMLElement; block = elements[i]; i++) {
-        log(block);
-        block.style.border = 'solid red 1px !important';
-    }
+  for (let i = 0, block: HTMLElement; block = elements[i]; i++) {
+    foundIframes.add(block);
+  }
+  console.debug('Found iframes:', foundIframes.size)
 }
 
 detect(iframes);
 
-setInterval(() => {
-    detect(iframes);
-    detect(anchors as any);
-}, 1000);
+setTimeout(() => {
+  detect(iframes);
+}, 2000);
 
