@@ -1,20 +1,21 @@
 import WebRequestDetails = chrome.webRequest.WebRequestDetails;
 import Tab = chrome.tabs.Tab;
 import WebRequestHeadersDetails = chrome.webRequest.WebRequestHeadersDetails;
-import { db } from "./db";
+import { ad_rules } from "./ad_rules";
+import { iframe_white_rules } from "./iframe_white_rules";
 
 const tabs = chrome.tabs;
 
 function iFrameIsAvailable(req: WebRequestDetails) {
-  return /^https:\/\/www.youtube.com/.test(req.url);
+  return iframe_white_rules.some(u => u.test(req.url.toLowerCase()));
 }
 
 function isBlock(req: WebRequestDetails) {
-  if (req.frameId > 0 && iFrameIsAvailable(req)) {
-    return false;
+  if (req.frameId > 0) {
+    return !iFrameIsAvailable(req);
   }
 
-  return db.some(u => req.url.indexOf("://" + u) !== -1)
+  return ad_rules.some(u => u.test(req.url.toLowerCase()))
 }
 
 function logBlocked(req: WebRequestHeadersDetails, tab?: Tab) {
