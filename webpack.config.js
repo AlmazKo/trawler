@@ -1,20 +1,26 @@
-const path = require('path');
+const path            = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: {
-        inject: './src/inject.ts',
+    entry  : {
+        inject    : './src/inject.ts',
         background: './src/background.ts'
     },
-    output: {
+    output : {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path    : path.resolve(__dirname, 'dist')
     },
     resolve: {
         extensions: [".ts"]
     },
-    module: {
+    module : {
         loaders: [
-            {  loader: "ts-loader" }
+            {loader: "ts-loader"}
         ]
-    }
+    },
+
+    plugins: [
+        //plugin doc: https://www.npmjs.com/package/copy-webpack-plugin
+        new CopyWebpackPlugin([{from: 'static'}])
+    ]
 };

@@ -10,13 +10,13 @@
   "permissions": ["<all_urls>", "background", "webRequest", "webRequestBlocking"],
   "content_scripts": [
     {
-      "js": [ "dist/inject.js" ],
+      "js": [ "inject.js" ],
       "matches": [ "<all_urls>" ]
     }
   ],
 
   "background": {
-    "scripts": ["dist/background.js"],
+    "scripts": ["background.js"],
     "persistent": true
   }
 }
