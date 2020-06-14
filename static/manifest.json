@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Trawler",
+  "description": "Web cleaner",
+  "version": "0.4.8",
+  "author": "Almazko",
+  "icons": {
+    "128": "fish_128.png"
+  },
+  "permissions": ["http://*/*", "https://*/*", "background", "webRequest", "webRequestBlocking", "tabs", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "fish_128.png"
+    },
+    "default_title": "Trawler",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

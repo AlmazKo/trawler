@@ -1,0 +1,6 @@
+.idea
+trawler.iml
+node_modules
+dist
+.log
+dist.*

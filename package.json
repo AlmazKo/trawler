@@ -1,0 +1,28 @@
+{
+  "name": "freedom",
+  "version": "0.0.1",
+  "description": "Trawler Chrome extension",
+  "keywords": [
+    "chrome-extension"
+  ],
+  "author": "Almazko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlmazKo/trawler"
+  },
+  "dependencies": {
+    "@types/chrome": "0.0.115"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.0.2",
+    "ts-loader": "^7.0.5",
+    "typescript": "^2.9.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack"
+  }
+}
